@@ -1,0 +1,36 @@
+h1, h2, p {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+table {
+  border: 1px solid;
+}
+
+th {
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+td {
+  font-family: Arial, Helvetica, sans-serif;
+  padding-right: 20px;
+}
+
+.errormessage {
+  color: red;
+}
+
+a {
+  color: black;
+  background-color: #eee;
+}
+
+*:not(nav) a:hover {
+  color: red;
+}
+
+form label {
+  padding-right: 20px;
+}
+
+/*# sourceMappingURL=styles.css.map */

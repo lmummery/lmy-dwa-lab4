@@ -1,0 +1,45 @@
+doctype html
+
+html
+	head
+		title #{forumName} - #{user.username}
+		link(rel="stylesheet" href="css/styles.css")
+	body
+		include nav
+
+		h1= forumName
+		h2= user.username
+
+		p #{user.firstname} #{user.surname}
+		p= user.country
+
+		if (posts.length > 0)
+			h2 Posts by #{user.username}
+			table
+				tr
+					th Date
+					th Topic
+					th Title
+					th Content
+				each post in posts
+					tr
+						td #{post.post_date.toDateString()} #{post.post_date.getHours()}:#{post.post_date.getMinutes()}
+						td= post.topic_title
+						td: a(href=`./post?id=${post.post_id}`)= post.post_title
+						td= post.post_content
+		else
+			p
+				strong #{user.username} has not made any posts
+
+		if (memberships.length > 0)
+			h2 #{user.username} is a member of:
+			ul
+				each m in memberships
+					li: a(href=`./topic?id=${m.topic_id}`)= m.topic_title
+		else
+			p
+				strong #{user.username} is not a member of any topics
+
+		if (loggedin)
+			br
+			a(href="/logout") Logout

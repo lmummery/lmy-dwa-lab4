@@ -1,0 +1,18 @@
+doctype html
+
+html
+	head
+		title #{forumName} - Search
+		link(rel="stylesheet" href="css/styles.css")
+	body
+		include nav
+
+		h1= forumName
+		h2 Search for Posts
+
+		form(method="get" action="./search-result")
+			p What are you interested in?
+			input(id="search-box" type="text"
+				name="keyword" value=lastSearch
+				placeholder="Web Apps")
+			input(type="submit" value="Search")

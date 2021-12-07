@@ -1,0 +1,8 @@
+-
+	let list = ["France", "Italy", "Spain", "Germany",
+		"Norway", "Denmark", "UK", "USA", "Mexico",
+		"Romania", "Portugal"].sort()
+
+select(id="country" name="country")
+	each c in list
+		option(value=c)= c

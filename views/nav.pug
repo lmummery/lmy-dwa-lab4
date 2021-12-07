@@ -1,0 +1,17 @@
+doctype html
+
+head
+	link(rel="stylesheet" href="css/navstyles.css")
+body
+	nav
+		ul
+			li: a(href="./about") About #{forumName}
+			li: a(href="./viewposts") View Posts
+			li: a(href="./users") List Users
+			li: a(href="./topics") List Topics
+			li: a(href="./addpost") Add a New Post
+			li: a(href="./search") Search for Posts
+			li: a(href="./login").loggedoutonly Login
+			li: a(href="./account").loggedinonly Me
+			li: a(href="./signup").loggedoutonly Get Started
+script(src="js/nav.js")

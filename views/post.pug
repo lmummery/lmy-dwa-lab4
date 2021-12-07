@@ -1,0 +1,25 @@
+doctype html
+
+html
+	head
+		title #{forumName} - #{post.post_title}
+		link(rel="stylesheet" href="css/styles.css")
+	body
+		include nav
+
+		h1= forumName
+		h2= post.post_title
+		h4 #{post.post_date.toDateString()} #{post.post_date.getHours()}:#{post.post_date.getMinutes()}
+		h4 In topic
+			|
+			|
+			a(href=`./topic?id=${post.topic_id}`)= post.topic_title
+		h4 by
+			|
+			|
+			a(href=`./user?user=${post.user_id}`)= post.username
+
+		p= post.post_content
+
+		if (ownpost)
+			a(href=`./delete?id=${post.post_id}`) Delete this post

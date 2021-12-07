@@ -1,0 +1,24 @@
+doctype html
+
+html
+	head
+		title #{forumName} - About
+		link(rel="stylesheet" href="css/styles.css")
+	body
+		include nav
+
+		h1= forumName
+		h2 Results for #{keyword}
+
+		table
+			tr
+				th Date
+				th Topic
+				th Title
+				th Content
+			each result in results
+				tr
+					td #{result.post_date.toDateString()} #{result.post_date.getHours()}:#{result.post_date.getMinutes()}
+					td= result.topic_title
+					td= result.post_title
+					td= result.post_content

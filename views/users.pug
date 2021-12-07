@@ -1,0 +1,24 @@
+doctype html
+
+html
+	head
+		title #{forumName} - Users
+		link(rel="stylesheet" href="css/styles.css")
+	body
+		include nav
+
+		h1= forumName
+		h2 Users
+
+		table
+			tr
+				th Username
+				th First Name
+				th Surname
+				th Country
+			each user in users
+				tr
+					td: a(href=`./user?user=${user.user_id}`)= user.username
+					td= user.firstname
+					td= user.surname
+					td= user.country

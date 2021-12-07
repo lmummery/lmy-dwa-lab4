@@ -1,0 +1,42 @@
+doctype html
+
+html
+	head
+		title #{forumName} - Get Started
+		link(rel="stylesheet" href="css/styles.css")
+	body
+		include nav
+		h1= forumName
+		h2 Get Started
+
+		form(method="post" action="./signup")
+			label(for="username") Username
+			input(id="username" type="text"
+				name="username" value=`${username}`
+				placeholder="Username")
+			br
+
+			label(for="password") Password
+			input(id="password" type="password"
+				name="password" value=`${password}`
+				placeholder="Password")
+			br
+
+			label(for="country") Country
+			include countryselect
+			br
+
+			label(for="firstname") First Name
+			input(id="firstname" type="text"
+				name="firstname" value=`${firstname}`
+				placeholder="First Name")
+			br
+
+			label(for="surname") Surname
+			input(id="surname" type="text"
+				name="surname" value=`${surname}`
+				placeholder="Surname")
+			br
+
+			input(type="submit" value="Create My Account")
+		p.errormessage= errormessage

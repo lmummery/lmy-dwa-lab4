@@ -1,0 +1,32 @@
+doctype html
+
+html
+	head
+		title #{forumName} - Posts
+		link(rel="stylesheet" href="css/styles.css")
+	body
+		include nav
+
+		h1= forumName
+		h2= pageTitle
+
+		if (posts.length > 0)
+			table
+				tr
+					th Date
+					th Topic
+					th Title
+					th Content
+					th User
+				each post in posts
+					tr
+						td #{post.post_date.toDateString()} #{post.post_date.getHours()}:#{post.post_date.getMinutes()}
+						td: a(href=`./viewposts?topic=${post.topic_title}`)= post.topic_title
+						td: a(href=`./post?id=${post.post_id}`)= post.post_title
+						td= post.post_content
+						td: a(href=`./viewposts?user=${post.username}`)= post.username
+		else
+			p: strong No posts found
+		if (filtered)
+			br
+			a(href="./viewposts") View All Posts

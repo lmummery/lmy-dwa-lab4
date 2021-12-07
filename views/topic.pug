@@ -1,0 +1,39 @@
+doctype html
+
+html
+	head
+		title #{forumName} - #{topic_title}
+		link(rel="stylesheet" href="css/styles.css")
+	body
+		include nav
+
+		h1= forumName
+		h2= topic_title
+
+		p= topic_description
+
+		if (posts.length > 0)
+			h2 Posts in #{topic_title}
+			table
+				tr
+					th Date
+					th Title
+					th Content
+					th User
+				each post in posts
+					tr
+						td #{post.post_date.toDateString()} #{post.post_date.getHours()}:#{post.post_date.getMinutes()}
+						td: a(href=`./post?id=${post.post_id}`)= post.post_title
+						td= post.post_content
+						td= post.username
+		else
+			h2 No posts in #{topic_title}
+
+		if (members.length > 0)
+			h2 Members of #{topic_title}
+
+			ul
+				each member in members
+					li: a(href=`./user?id=${member.user_id}`)= member.username
+		else
+			h2 #{topic_title} has no members

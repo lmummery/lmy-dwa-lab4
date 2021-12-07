@@ -1,0 +1,32 @@
+doctype html
+
+html
+	head
+		title #{forumName} - Add Post
+		link(rel="stylesheet" href="css/styles.css")
+	body
+		include nav
+
+		h1= forumName
+		h2 Add a Post
+
+		form(method="post" action="./postadded")
+			label(for="username") Username:
+				input(id="username" type="text"
+					name="username" value=`${username}`
+					disabled=editable
+					placeholder="Username")
+			label(for="topic") Topic:
+				input(id="topic" type="text"
+					name="topic" value=`${topic}`
+					placeholder="Topic")
+			label(for="title") Title:
+				input(id="title" type="text"
+					name="title" value=`${title}`
+					placeholder="Post Title")
+			label(for="content") Content:
+				textarea(id="content" type="text"
+					name="content" value=`${content}`
+					placeholder="Content")= content
+			input(type="submit" value="Add post")
+		p.errormessage= errormessage

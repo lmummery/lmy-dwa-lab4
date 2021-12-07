@@ -1,0 +1,20 @@
+doctype html
+
+html
+	head
+		title #{forumName} - Topics
+		link(rel="stylesheet" href="css/styles.css")
+	body
+		include nav
+
+		h1= forumName
+		h2 Topics
+
+		table
+			tr
+				th Topic
+				th Description
+			each topic in topics
+				tr
+					td: a(href=`./topic?id=${topic.topic_id}`)= topic.topic_title
+					td= topic.topic_description
